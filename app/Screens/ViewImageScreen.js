@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, Image, View } from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import colors from '../config/color'
 
@@ -17,35 +18,37 @@ const ViewImageScreen = () => {
         source={require('../assets/chair.jpg')}
       />
 
-      <SafeAreaView
-        style={{
-          position: 'absolute',
-          flexDirection: 'row',
-          backgroundColor: colors.primary,
-          height: 50,
-          width: 50,
-          left: 30,
-          top: 45,
-        }}
-      />
+      <View style={styles.close}>
+        <MaterialCommunityIcons name='close' color='white' size={35} />
+      </View>
 
-      <SafeAreaView
-        style={{
-          position: 'absolute',
-          flexDirection: 'row',
-          backgroundColor: colors.secondary,
-          height: 50,
-          width: 50,
-          right: 30,
-          top: 45,
-        }}
-      />
+      <View style={styles.delete}>
+        <MaterialCommunityIcons
+          name='trash-can-outline'
+          color='white'
+          size={35}
+        />
+      </View>
     </View>
   )
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  close: {
+    position: 'absolute',
+    flexDirection: 'row',
+    left: 30,
+    top: 55,
+  },
+
+  delete: {
+    position: 'absolute',
+    flexDirection: 'row',
+    right: 45,
+    top: 55,
   },
 })
 
